@@ -85,10 +85,8 @@ let Spotify = {
               method: 'POST',
               body: JSON.stringify({ uris: trackUris }) 
             }).then(() => {
-              console.log('we made it to the final then()');
               if (playlistArt) {
                 const acceptableArt = playlistArt.substring(23);
-                //const finalArt = acceptableArt.slice(0, -3);
                 console.log(acceptableArt);
                 return fetch(`https://api.spotify.com/v1/playlists/${playlistId}/images`,
                   {
@@ -96,11 +94,6 @@ let Spotify = {
                     method: 'PUT',
                     body: acceptableArt
                   })
-                  /*.then(response => {
-                    return response.json();
-                  }).catch(err => {
-                    console.log(err);
-                  });*/
               }
             })
         })
